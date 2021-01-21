@@ -1,1 +1,0 @@
-mongodb+srv://lennon:vb0zSPW2uE8Uy3Gq@cluster0.jae45.mongodb.net/cafe

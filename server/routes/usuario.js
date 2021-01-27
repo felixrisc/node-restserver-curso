@@ -34,12 +34,10 @@ app.get('/usuario', verificaToken, (req, res) => {
                         cuantos: conteo
                     });
                 });
-
-                
             });
-  });
+});
   
-  app.post('/usuario', [verificaToken,verificaAdmin_Role],  (req, res) => {
+app.post('/usuario', [verificaToken,verificaAdmin_Role],  (req, res) => {
       let body = req.body;
 
       let usuario = new Usuario({
@@ -64,9 +62,9 @@ app.get('/usuario', verificaToken, (req, res) => {
               usuario: usuarioDB
           })
       });
-    });
+});
   
-  app.put('/usuario/:id', [verificaToken,verificaAdmin_Role], (req, res) => {
+app.put('/usuario/:id', [verificaToken,verificaAdmin_Role], (req, res) => {
   
       let id = req.params.id;
       let body = _.pick(req.body,['nombre','email','img','role','estado']);
@@ -86,9 +84,9 @@ app.get('/usuario', verificaToken, (req, res) => {
       });
   
       //res.json(`put usuario id: ${id}`);
-    });
+});
   
-  app.delete('/usuario/:id',[verificaToken,verificaAdmin_Role], (req, res) => {
+app.delete('/usuario/:id',[verificaToken,verificaAdmin_Role], (req, res) => {
       let id = req.params.id;
 
       let nuevoEstado = {
@@ -117,6 +115,6 @@ app.get('/usuario', verificaToken, (req, res) => {
             usuario: borrado
         })
       });
-    });
+});
 
 module.exports = app;
